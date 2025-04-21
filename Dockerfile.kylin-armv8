@@ -1,5 +1,5 @@
 # 使用麒麟系统的官方基础镜像（ARMv8架构）
-FROM k0see/kylinos-server
+FROM freelizhun/kylinosv10:arm64
 
 # 安装必要的依赖项
 RUN apt-get update && \
