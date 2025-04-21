@@ -1,5 +1,7 @@
 # 使用麒麟系统的官方基础镜像（ARMv8架构）
-FROM lhrbest/kylinos:v10sp1_arm64
+# FROM lhrbest/kylinos:v10sp1_arm64
+FROM zuoguochen/kylinos:v10sp1
+
 
 # RUN ping -c 1 archive.kylinos.cn
 
@@ -7,9 +9,9 @@ FROM lhrbest/kylinos:v10sp1_arm64
 # RUN chmod 644 /etc/apt/sources.list
 
 # 输出当前系统镜像可用的所有命令
-# RUN set -ex && \
-#     echo "Available commands in the current image:" && \
-#     compgen -c
+RUN set -ex && \
+    echo "Available commands in the current image:" && \
+    compgen -c
 
 # 添加适用于银河麒麟操作系统 V10 的软件源
 # RUN set -ex && \
