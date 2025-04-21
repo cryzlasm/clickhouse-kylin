@@ -35,7 +35,14 @@ RUN ls -l /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
 # RUN yum update
 # RUN yum update -y --nogpgcheck --disablerepo='*' --enablerepo='ks10-adv-os' --insecure
 RUN yum update -y --nogpgcheck --disablerepo='*' --enablerepo='ks10-adv-os'
-RUN yum install -y build-essential cmake libreadline-dev libssl-dev libicu-dev zlib1g-dev 
+
+# /bin/sh -c yum install -y build-essential cmake libreadline-dev libssl-dev libicu-dev zlib1g-dev
+RUN yum install -y build-essential 
+RUN yum install -y cmake
+RUN yum install -y libreadline-dev 
+RUN yum install -y libssl-dev 
+RUN yum install -y libicu-dev 
+RUN yum install -y zlib1g-dev 
 RUN yum clean all
 
 # RUN apt-get update 
