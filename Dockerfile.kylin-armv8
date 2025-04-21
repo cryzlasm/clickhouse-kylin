@@ -4,7 +4,7 @@ FROM lhrbest/kylinos:v10sp1_arm64
 # RUN ping -c 1 archive.kylinos.cn
 
 # 确保 /etc/apt/sources.list 文件可写
-RUN chmod 644 /etc/apt/sources.list
+# RUN chmod 644 /etc/apt/sources.list
 
 # 添加适用于银河麒麟操作系统 V10 的软件源
 RUN set -ex && \
