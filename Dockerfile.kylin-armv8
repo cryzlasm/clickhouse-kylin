@@ -8,13 +8,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # 克隆 ClickHouse 源代码
-RUN git clone --recursive https://github.com/cryzlasm/clickhouse-kylin.git /clickhouse
+RUN git clone --recursive https://github.com/ClickHouse/ClickHouse.git /clickhouse
 
 # 进入源代码目录
 WORKDIR /clickhouse
 
-# 检查代码并选择合适的分支（例如：latest）
-RUN git checkout latest
+# 检查代码并选择特定的版本 v23.8.2.7-lts
+RUN git checkout v23.8.2.7-lts
 
 # 更新子模块<span>[web](/yuewen-index-reference?key=f06daa47&indeces=3)</span>
 RUN git submodule update --init --recursive
