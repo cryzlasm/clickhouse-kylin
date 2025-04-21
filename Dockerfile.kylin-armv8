@@ -3,23 +3,19 @@ FROM freelizhun/kylinosv10:arm64
 
 # RUN ping -c 1 archive.kylinos.cn
 
-# 添加适用于银河麒麟操作系统 V10 SP1 的软件源
-RUN sudo echo "deb http://archive.kylinos.cn/kylin/KYLIN-ALL 10.0 main restricted universe multiverse" > /etc/apt/sources.list && \
-    sudo echo "deb http://archive.kylinos.cn/kylin/partner juniper main" >> /etc/apt/sources.list
-
-
+# 添加适用于银河麒麟操作系统 V10 的软件源
 RUN set -ex && \
-    sudo echo "deb http://archive.kylinos.cn/kylin/KYLIN-ALL 10.0 main restricted universe multiverse" > /etc/apt/sources.list && \
-    sudo echo "deb http://archive.kylinos.cn/kylin/partner juniper main" >> /etc/apt/sources.list  && \
+    echo "deb http://archive.kylinos.cn/kylin/KYLIN-ALL 10.0 main restricted universe multiverse" > /etc/apt/sources.list && \
+    echo "deb http://archive.kylinos.cn/kylin/partner juniper main" >> /etc/apt/sources.list  && \
     ls -l /etc/apt/sources.list
 
 
 # 安装必要的依赖项
 RUN set -ex && \
-    sudo apt-get update && \
-    sudo apt-get install -y build-essential cmake libreadline-dev libssl-dev libicu-dev zlib1g-dev && \
-    sudo apt-get clean && \
-    sudo rm -rf /var/lib/apt/lists/*
+    apt-get update && \
+    apt-get install -y build-essential cmake libreadline-dev libssl-dev libicu-dev zlib1g-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # 克隆 ClickHouse 源代码
 RUN git clone --recursive https://github.com/ClickHouse/ClickHouse.git /clickhouse
