@@ -28,7 +28,8 @@ RUN set -ex && \
 # 安装必要的依赖项
 # RUN yum install -y ca-certificates && update-ca-trust force-enable
 # RUN yum update
-RUN yum update -y --nogpgcheck --disablerepo='*' --enablerepo='ks10-adv-os' --insecure
+# RUN yum update -y --nogpgcheck --disablerepo='*' --enablerepo='ks10-adv-os' --insecure
+RUN yum update -y --nogpgcheck --disablerepo='*' --enablerepo='ks10-adv-os'
 RUN yum install -y build-essential cmake libreadline-dev libssl-dev libicu-dev zlib1g-dev 
 RUN yum clean all
 
