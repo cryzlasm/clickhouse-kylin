@@ -1,5 +1,5 @@
 # 使用麒麟系统的官方基础镜像（ARMv8架构）
-FROM freelizhun/kylinosv10:arm64
+FROM zuoguochen/kylinos:v10sp1
 
 # RUN ping -c 1 archive.kylinos.cn
 
