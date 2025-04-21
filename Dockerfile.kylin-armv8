@@ -1,5 +1,5 @@
 # 使用麒麟系统的官方基础镜像（ARMv8架构）
-FROM breakliu/kylinos:v10-sp2-20210524
+FROM lhrbest/kylinos:v10sp1_arm64
 
 # RUN ping -c 1 archive.kylinos.cn
 
@@ -8,7 +8,7 @@ RUN chmod 644 /etc/apt/sources.list
 
 # 添加适用于银河麒麟操作系统 V10 的软件源
 RUN set -ex && \
-    echo "deb http://archive.kylinos.cn/kylin/KYLIN-ALL 10.2 main restricted universe multiverse" > /etc/apt/sources.list && \
+    echo "deb http://archive.kylinos.cn/kylin/KYLIN-ALL 10.1 main restricted universe multiverse" > /etc/apt/sources.list && \
     echo "deb http://archive.kylinos.cn/kylin/partner juniper main" >> /etc/apt/sources.list  && \
     ls -l /etc/apt/sources.list
 
