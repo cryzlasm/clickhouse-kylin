@@ -25,6 +25,11 @@ RUN set -ex && \
 #     ls -l /etc/apt/sources.list && \
 #     cat /etc/apt/sources.list
 
+
+RUN mkdir -p /etc/pki/ca-trust/extracted/pem
+RUN update-ca-trust
+RUN ls -l /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+
 # 安装必要的依赖项
 # RUN yum install -y ca-certificates && update-ca-trust force-enable
 # RUN yum update
