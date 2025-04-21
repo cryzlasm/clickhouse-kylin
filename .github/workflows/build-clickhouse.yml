@@ -3,12 +3,12 @@ name: Build ClickHouse on Kylin OS (ARMv8) and Push to GHCR
 on:
   push:
     branches:
-      - main  # 监控 main 分支
-      - master  # 新增：监控 master 分支
+      - main
+      - master
   pull_request:
     branches:
-      - main  # 监控针对 main 分支的拉取请求
-      - master  # 新增：监控针对 master 分支的拉取请求
+      - main
+      - master
 
 jobs:
   build:
@@ -38,7 +38,7 @@ jobs:
           context: .
           file: Dockerfile.kylin-armv8
           platforms: linux/arm64
-          push: true  # 设置为 true，以便在构建完成后自动推送镜像到 GHCR
+          push: true
           tags: |
-            ghcr.io/myusername/clickhouse:v23.8.2.7-lts-kylin-armv8  # 包含版本号的标签
-            ghcr.io/myusername/clickhouse:latest-kylin-armv8        # 可选：latest 标签
+            ghcr.io/cryzlasm/clickhouse:v23.8.2.7-lts-kylin-armv8
+            ghcr.io/cryzlasm/clickhouse:latest-kylin-armv8
