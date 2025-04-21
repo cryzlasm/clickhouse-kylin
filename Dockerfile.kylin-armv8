@@ -1,0 +1,27 @@
+# 使用麒麟系统的官方基础镜像（ARMv8架构）
+FROM kylinos/kylin-base:latest
+
+# 安装必要的依赖项
+RUN apt-get update && \
+    apt-get install -y build-essential cmake libreadline-dev libssl-dev libicu-dev zlib1g-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# 克隆 ClickHouse 源代码
+RUN git clone --recursive https://github.com/cryzlasm/clickhouse-kylin.git /clickhouse
+
+# 进入源代码目录
+WORKDIR /clickhouse
+
+# 检查代码并选择合适的分支（例如：latest）
+RUN git checkout latest
+
+# 更新子模块<span>[web](/yuewen-index-reference?key=f06daa47&indeces=3)</span>
+RUN git submodule update --init --recursive
+
+# 编译 ClickHouse<span>[web](/yuewen-index-reference?key=28ae23df&indeces=7)</span>
+RUN mkdir build && \
+    cd build && \
+    cmake -DCMAKE_BUILD_TYPE=Release .. && \
+    make -j $(nproc) && \
+    make install
