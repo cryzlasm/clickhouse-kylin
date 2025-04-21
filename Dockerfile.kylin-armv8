@@ -3,12 +3,20 @@ FROM freelizhun/kylinosv10:arm64
 
 # RUN ping -c 1 archive.kylinos.cn
 
+# 确保 /etc/apt/sources.list 文件可写
+RUN chmod 644 /etc/apt/sources.list
+
 # 添加适用于银河麒麟操作系统 V10 的软件源
 RUN set -ex && \
     echo "deb http://archive.kylinos.cn/kylin/KYLIN-ALL 10.0 main restricted universe multiverse" > /etc/apt/sources.list && \
     echo "deb http://archive.kylinos.cn/kylin/partner juniper main" >> /etc/apt/sources.list  && \
     ls -l /etc/apt/sources.list
 
+
+# 调试：查看文件权限和内容
+RUN set -ex && \
+    ls -l /etc/apt/sources.list && \
+    cat /etc/apt/sources.list
 
 # 安装必要的依赖项
 RUN set -ex && \
