@@ -7,9 +7,9 @@ FROM lhrbest/kylinos:v10sp1_arm64
 # RUN chmod 644 /etc/apt/sources.list
 
 # 输出当前系统镜像可用的所有命令
-RUN set -ex && \
-    echo "Available commands in the current image:" && \
-    compgen -c
+# RUN set -ex && \
+#     echo "Available commands in the current image:" && \
+#     compgen -c
 
 # 添加适用于银河麒麟操作系统 V10 的软件源
 # RUN set -ex && \
@@ -24,8 +24,8 @@ RUN set -ex && \
 #     cat /etc/apt/sources.list
 
 # 安装必要的依赖项
-RUN yum install -y ca-certificates && update-ca-trust force-enable
-RUN yum update
+# RUN yum install -y ca-certificates && update-ca-trust force-enable
+# RUN yum update
 RUN yum update -y --nogpgcheck --disablerepo='*' --enablerepo='ks10-adv-os' --insecure
 RUN yum install -y build-essential cmake libreadline-dev libssl-dev libicu-dev zlib1g-dev 
 RUN yum clean all
