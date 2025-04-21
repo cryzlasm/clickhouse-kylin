@@ -1,7 +1,7 @@
 # 使用麒麟系统的官方基础镜像（ARMv8架构）
 FROM freelizhun/kylinosv10:arm64
 
-RUN ping -c 1 archive.kylinos.cn
+# RUN ping -c 1 archive.kylinos.cn
 
 # 添加适用于银河麒麟操作系统 V10 SP1 的软件源
 RUN sudo echo "deb http://archive.kylinos.cn/kylin/KYLIN-ALL 10.0 main restricted universe multiverse" > /etc/apt/sources.list && \
