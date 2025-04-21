@@ -12,10 +12,10 @@ RUN set -ex && \
     compgen -c
 
 # 添加适用于银河麒麟操作系统 V10 的软件源
-RUN set -ex && \
-    echo "deb http://archive.kylinos.cn/kylin/KYLIN-ALL 10.1 main restricted universe multiverse" > /etc/apt/sources.list && \
-    echo "deb http://archive.kylinos.cn/kylin/partner juniper main" >> /etc/apt/sources.list  && \
-    ls -l /etc/apt/sources.list
+# RUN set -ex && \
+#     echo "deb http://archive.kylinos.cn/kylin/KYLIN-ALL 10.1 main restricted universe multiverse" > /etc/apt/sources.list && \
+#     echo "deb http://archive.kylinos.cn/kylin/partner juniper main" >> /etc/apt/sources.list  && \
+#     ls -l /etc/apt/sources.list
 
 
 # 调试：查看文件权限和内容
